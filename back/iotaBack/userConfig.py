@@ -1,29 +1,37 @@
 from iota.crypto.types import Seed
 from iota.crypto.addresses import AddressGenerator
 from pprint import pprint
+from datetime import datetime
+from temps import basic
 import json
 
-# TODO: create seed, check for previous usage, and store as current seed.
-data = {
-    "president": {
-        "name": "Zaphod Beeblebrox",
-        "species": "Betelgusian",
-        "companions": ["Arthur Dent", "Marvin", "Trillian", "Ford Prefect"]
-    }
-}
 
-seedLog = open("acc_log.json", "w")
-json.dump(data, seedLog, indent=4)
-
-
-class SeedGenCheck():
-
-    newSeed = Seed.random()
+class User:
+    '''Creates a user object and passes the data to a json file (userLog.json)'''
     
-#    def seedCheck():
+    def createNewUser(self):
+        with open('userLog.json', 'w') as write_file:
+            json.dump(basic, write_file, indent=4)
 
-        
-    
+        with open('userLog.json', 'r') as read:
+            update = json.load(read)
+            update['USER']['ID'] = ['PLACEHOLDER']
+            update['USER']['CURRENT SEED'] = [str(Seed.random())]
+            update['USER']['SEC_LVL'] = 3
 
-# TODO: create address with new seed, check to see if previously used, stor as current address.
+        with open('userLog.json', 'w') as write:
+            json.dump(update, write, indent=4)
+
+    @classmethod
+    def userManualSeed(cls):
+        seed = input('Please enter your seed:')
+
+
+
+
+ZAPHOD = User()
+
+
+if __name__ == "__main__":
+    ZAPHOD.createNewUser()
 
