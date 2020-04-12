@@ -37,7 +37,6 @@ class User:
         with open('user_log.json', 'w') as write_file:
             json.dump(update, write_file, indent=4)
 
-
         
     @classmethod
     def userManualSeed(cls, seed):
@@ -45,7 +44,7 @@ class User:
         '''
         pass
 
-
+    
 
 
 ZAPHOD = User()
