@@ -2,18 +2,20 @@ import json
 
 
 
-basic_template = '''{
+user_template = '''{
     "USER": {
-        "ID": [],
+        "ID": "",
         "SEC_LVL": [],
         "CURRENT SEED": [],
-        "CURRENT ADDRESS":[],
+        "CURRENT ADDRESS": [],
+        "CURRENT ADD INDEX": [],
         "ADDRESS LIST": [],
         "PAST SEEDS": [],
         "PAST ADDRESSES": [],
         "PENDING TRANSACTIONS": [],
-        "CONFIRMED TRANSACTIONS": []
+        "CONFIRMED TRANSACTIONS": [],
+        "CREATE DATE": [],
     }
 }''' 
 
-basic = json.loads(basic_template)
+basic = json.loads(user_template)
